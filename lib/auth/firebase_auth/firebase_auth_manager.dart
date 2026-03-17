@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../auth_manager.dart';
 
-import '/backend/backend.dart';
 import 'anonymous_auth.dart';
 import 'apple_auth.dart';
 import 'email_auth.dart';

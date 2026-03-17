@@ -1,9 +1,14 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../auth_manager.dart';
+import '../base_auth_user_provider.dart';
+import '../../flutter_flow/flutter_flow_util.dart';
 
 import '/backend/backend.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'firebase_auth_manager.dart';
 
@@ -37,35 +42,3 @@ final jwtTokenStream = FirebaseAuth.instance
     .idTokenChanges()
     .map((user) async => _currentJwtToken = await user?.getIdToken())
     .asBroadcastStream();
-
-DocumentReference? get currentUserReference =>
-    loggedIn ? ListingsRecord.collection.doc(currentUser!.uid) : null;
-
-ListingsRecord? currentUserDocument;
-final authenticatedUserStream = FirebaseAuth.instance
-    .authStateChanges()
-    .map<String>((user) => user?.uid ?? '')
-    .switchMap(
-      (uid) => uid.isEmpty
-          ? Stream.value(null)
-          : ListingsRecord.getDocument(ListingsRecord.collection.doc(uid))
-              .handleError((_) {}),
-    )
-    .map((user) {
-  currentUserDocument = user;
-
-  return currentUserDocument;
-}).asBroadcastStream();
-
-class AuthUserStreamWidget extends StatelessWidget {
-  const AuthUserStreamWidget({Key? key, required this.builder})
-      : super(key: key);
-
-  final WidgetBuilder builder;
-
-  @override
-  Widget build(BuildContext context) => StreamBuilder(
-        stream: authenticatedUserStream,
-        builder: (context, _) => builder(context),
-      );
-}

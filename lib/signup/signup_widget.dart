@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -703,16 +702,6 @@ class _SignupWidgetState extends State<SignupWidget> {
                               if (user == null) {
                                 return;
                               }
-
-                              await ListingsRecord.collection
-                                  .doc(user.uid)
-                                  .update(createListingsRecordData(
-                                    email: valueOrDefault<String>(
-                                      _model.signUpEmailTextController.text,
-                                      'example@gmail.com',
-                                    ),
-                                    createdTime: getCurrentTimestamp,
-                                  ));
 
                               context.goNamedAuth(
                                   Homepage3Widget.routeName, context.mounted);
