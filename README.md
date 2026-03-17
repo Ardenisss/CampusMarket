@@ -16,12 +16,13 @@ College students constantly need things — cheap textbooks, a tutor before fina
 
 ## 📸 Screenshots
 
-> _Screenshots coming soon_
-
 | Home / Browse | Create Listing | Login |
 |---|---|---|
-| ![Home](screenshots/home.png) | ![Listing](screenshots/listing.png) | ![Login](screenshots/login.png) |
+| ![Home](screenshots/home.png) | ![Listing](screenshots/createlisting.png) | ![Login](screenshots/login.png) |
 
+| Create Account | My Listings | Search | View Listing |
+|---|---|---|---|
+| ![Create Account](screenshots/createaccount.png) | ![My Listings](screenshots/mylistings.png) | ![Search](screenshots/search.png) | ![View Listing](screenshots/viewlisting.png) |
 ---
 
 ## ✨ Features
@@ -50,7 +51,7 @@ This project was built using [FlutterFlow](https://flutterflow.io/). To run it l
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/campus-market.git
+git clone https://github.com/ardenisss/CampusMarket.git
 cd campus-market
 
 # Install Flutter dependencies
@@ -81,7 +82,3 @@ Given more time, here's where we'd take Campus Market:
 Built by a team of 2 at [Hack@URI](https://hackuri.com/).
 
 ---
-
-## 📄 License
-
-MIT
